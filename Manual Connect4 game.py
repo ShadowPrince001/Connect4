@@ -7,7 +7,7 @@ color=(255,255,255)
 screen.fill(color)
 for a in range(0,7):
     for b in range(0,6):
-        h, k = 45+(a*100),105+(b*90)
+        h, k = 50+(a*100),105+(b*90)
         screen_array= pygame.surfarray.pixels2d(screen)
         for y in range(200):
             for x in range(100):
