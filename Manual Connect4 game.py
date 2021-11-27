@@ -11,9 +11,7 @@ for a in range(0,7):
         screen_array= pygame.surfarray.pixels2d(screen)
         for y in range(200):
             for x in range(100):
-                for r in range(30):
-                    if round(float((x-h)**2 + (y-k)**2 - r**2)) ==0:
-                        screen_array[x,y]=0
+               
 print(screen_array)
 
 pygame.display.flip()
