@@ -26,8 +26,19 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP and  event.button == 1:
             if Column1.collidepoint(event.pos):
-                print("hi")
-            elif Column3.collidepoint(event.pos):                    
-                run= False
+                print("A")
+            elif Column2.collidepoint(event.pos):
+                print("B")
+            elif Column3.collidepoint(event.pos):
+                print("C")
+            elif Column4.collidepoint(event.pos):
+                print("D")
+            elif Column5.collidepoint(event.pos):
+                print("E")
+            elif Column6.collidepoint(event.pos):
+                print("F")
+            elif Column7.collidepoint(event.pos):
+                print("G")
+            else:
+                run = False
                     
-
