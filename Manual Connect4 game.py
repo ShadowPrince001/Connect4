@@ -31,6 +31,4 @@ while run:
                 elif Column3.collidepoint(event.pos):                    
                     run= False
                     
-print(screen_array)
 
-pygame.display.flip()
