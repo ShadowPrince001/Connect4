@@ -9,14 +9,15 @@ pygame.display.set_caption("This is Connect4.")
 
 for a in range(0,7):
     for b in range(0,6):
-        h, k = 45+(a*100),105+(b*90)
+        h, k = 45+(a*100),90+(b*90)
         pygame.draw.circle(screen, (0, 0, 0), (h,k), 30)        
         screen_array= pygame.surfarray.pixels2d(screen)
-        for y in range(700):
-            for x in range(600):
-                for r in range(30):
-                    if abs((x-h)**2 + (y-k)**2 - r**2) ==0:
-                        screen_array[x,y]=255
+        for y in range(600):
+            for x in range(90):
+                screen_array[x,y]=0
+     
 print(screen_array)
 
 pygame.display.flip()
+
+
