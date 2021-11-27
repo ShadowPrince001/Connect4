@@ -24,11 +24,10 @@ pygame.display.flip()
 run=True
 while run:
     for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONUP:
-            if event.button == 1:
-                if Column1.collidepoint(event.pos):
-                    print("hi")
-                elif Column3.collidepoint(event.pos):                    
-                    run= False
+        if event.type == pygame.MOUSEBUTTONUP and  event.button == 1:
+            if Column1.collidepoint(event.pos):
+                print("hi")
+            elif Column3.collidepoint(event.pos):                    
+                run= False
                     
 
