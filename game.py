@@ -1,6 +1,9 @@
+
 import pygame
 import numpy
+import sys
 pygame.init()
+
 size = [700, 600]
 screen = pygame.display.set_mode(size)
 bg = (0, 128, 255)
@@ -14,7 +17,7 @@ for a in range(0,7):
         h, k = 50+(a*100),90+(b*90)
         pygame.draw.circle(screen, (0, 0, 0), (h,k), 30)        
         screen_array= pygame.surfarray.pixels2d(screen)
-    
+        
 Column1 = pygame.draw.rect(screen, [0, 0, 0], [5, 50, 90, 540], 1)
 Column2 = pygame.draw.rect(screen, [0, 0, 0], [105, 50, 90, 540], 1)
 Column3 = pygame.draw.rect(screen, [0, 0, 0], [205, 50, 90, 540], 1)
@@ -23,7 +26,9 @@ Column5 = pygame.draw.rect(screen, [0, 0, 0], [405, 50, 90, 540], 1)
 Column6 = pygame.draw.rect(screen, [0, 0, 0], [505, 50, 90, 540], 1)
 Column7 = pygame.draw.rect(screen, [0, 0, 0], [605, 50, 90, 540], 1)
 
-run=True
+    
+pygame.display.flip()
+
 C1=0
 C2=0
 C3=0
@@ -32,16 +37,26 @@ C5=0
 C6=0
 C7=0
 Turn=1
-pygame.display.flip()
-while Turn < 43:
+
+run = True
+while run==True:
+    
     if Turn%2==1:
         Color=(0,255,0)
-        pygame.display.set_caption("This is Connect4.Player 1 Turn")
+        pygame.display.set_caption("This is Connect4.Player 1 Turn")   
     else:
         Color=(255,0,0)
         pygame.display.set_caption("This is Connect4.Player 2 Turn")
+        
     for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONUP and  event.button == 1:
+        if event.type == pygame.QUIT: 
+            pygame.quit()
+            sys.exit
+            run=False
+            break
+        
+
+        elif event.type == pygame.MOUSEBUTTONUP and  event.button == 1:
             if Column1.collidepoint(event.pos) and C1 < 6 :
                 pygame.draw.circle(screen, (Color), (50,540-(C1*90)), 30)
                 C1+=1
@@ -77,12 +92,4 @@ while Turn < 43:
                 C7+=1
                 Turn+=1
                 pygame.display.flip()
-            elif Turn==42:
-                break
-                pygame.quit()
-                exit()
-            elif event.type == pygame.QUIT:
-                break
-                pygame.quit()
-                exit()           
-            
+                
